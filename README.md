@@ -34,7 +34,20 @@ Then using both staging tables we populate the following star schema with one fa
 
 • **create_tables.py**: This script will ````DROP Table IF EXISTS```` and re-create new tables.
 
-• **etl.py**: This script executes `````COPY```` statements to staging tables, transformes and loads the start schema. 
+• **etl.py**: This script executes `````COPY```` statements to staging tables, transforms and loads data into the tables in the schema. 
 
 ## Cluster Configurations
+ 
+1. First you must create an ````IAM role```` with an attached policy called **AmazonS3ReadOnlyAccess**
+2. Then naviagte to EC2 service where you will create a security group. A security group will act as firewall for your Redshift cluster to control inbound and outbound traffic. Create the security group and add the following inbound rules:
+![inbound rules](https://user-images.githubusercontent.com/97537153/190350343-57420d2c-796f-40ed-a667-629d149f236f.png)
+---
+**NOTE**
+
+Using ````0.0.0.0/0```` is not recommended for anything other than demonstration purposes because it allows access from any computer on the internet. 
+
+---
+3. Create redshift cluster with your preferences and make sure you attach the IAM role and security group just created so you can access it. 
+4. Fill the **dwh.config** file with all the information of your IAM role and redshift cluster.
+
 
