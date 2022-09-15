@@ -34,7 +34,7 @@ Then using both staging tables we populate the following star schema with one fa
 
 • **create_tables.py**: This script will ````DROP Table IF EXISTS```` and re-create new tables.
 
-• **etl.py**: This script executes `````COPY```` statements to staging tables, transforms and loads data into the tables in the schema. 
+• **etl.py**: This script executes ````COPY```` statements to staging tables, transforms and loads data into the tables in the schema. 
 
 ## Cluster Configurations
  
